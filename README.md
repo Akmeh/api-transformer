@@ -1,6 +1,6 @@
 # API Transformer
 
-Using Laravel/Lumen as a framework and Fract PHP League I need a fast way to create controllers giving them proper format 
+Using Laravel/Lumen as a framework and Fractal PHP League I need a fast way to create controllers giving them proper format 
 
 
 ## How to use it on your controllers
@@ -23,9 +23,6 @@ use Illuminate\Http\Response;
  */
 class CountriesController extends  Controller
 {
-
-    protected $defaultCollection = 'countries';
-
     use Transformer;
 
     public function index(Request $request)

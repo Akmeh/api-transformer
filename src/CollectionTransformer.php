@@ -40,7 +40,7 @@ trait CollectionTransformer
 
         $resource = new FractalCollection($collection, $transformer, $resource);
 
-        $resource->setCursor($this->getCursorFromRequest($request));
+        $resource->setCursor($this->getCursorFromRequest($request, $resource));
 
         $this->setMeta($meta, $resource);
         return $manager->createData($resource)->toArray();

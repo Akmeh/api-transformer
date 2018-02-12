@@ -18,7 +18,7 @@ trait CursorForCollections
     /**
      * @var  string Default Collection to use
      */
-    protected $defaultCollection;
+    private $defaultCollection;
 
     private $total = null;
 
@@ -50,10 +50,13 @@ trait CursorForCollections
 
     /**
      * @param Request $request
+     * @param string $collection
      * @return Cursor
      */
-    public function getCursorFromRequest(Request $request) : Cursor
+    public function getCursorFromRequest(Request $request, string $collection) : Cursor
     {
+        $this->defaultCollection = $collection;
+
         if ($request->has('limit')) {
             $count = $request->get('limit') > 25
                 ? 25
