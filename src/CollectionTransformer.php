@@ -22,12 +22,12 @@ trait CollectionTransformer
     /**
      * @param Collection $collection
      * @param TransformerAbstract $transformer
-     * @param string $resource
+     * @param string $resourceName
      * @param Request $request
      * @return array
      */
     public function transformCollection(
-        Collection $collection, TransformerAbstract $transformer, string $resource, Request $request
+        Collection $collection, TransformerAbstract $transformer, string $resourceName, Request $request
     ) : array  {
 
         $meta = [
@@ -38,9 +38,9 @@ trait CollectionTransformer
         $manager->setSerializer(new JsonApiSerializer(env('BASE_URL')));
 
 
-        $resource = new FractalCollection($collection, $transformer, $resource);
+        $resource = new FractalCollection($collection, $transformer, $resourceName);
 
-        $resource->setCursor($this->getCursorFromRequest($request, $resource));
+        $resource->setCursor($this->getCursorFromRequest($request, $resourceName));
 
         $this->setMeta($meta, $resource);
         return $manager->createData($resource)->toArray();
