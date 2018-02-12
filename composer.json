@@ -1,5 +1,5 @@
 {
-    "name": "pablofmorales/api-transformer",
+    "name": "akmeh/api-transformer",
     "description": "API Tool for transform the output easily between Laravel/Lumen API.",
     "keywords": ["framework", "laravel", "api"],
     "license": "MIT",
