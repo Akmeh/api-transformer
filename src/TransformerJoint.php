@@ -9,7 +9,7 @@ use League\Fractal\Resource\Item as FractalItem;
 
 
 /**
- * Trait TransformerJoint
+ * Class TransformerJoint
  *
  * When you need to include transformer inside of your transformer
  *
