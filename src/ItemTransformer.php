@@ -15,7 +15,6 @@ use League\Fractal\TransformerAbstract;
  */
 trait ItemTransformer
 {
-    use MetaTransformer;
 
     /**
      * @param Model $model

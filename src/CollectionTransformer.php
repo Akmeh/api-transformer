@@ -16,7 +16,6 @@ use League\Fractal\TransformerAbstract;
  */
 trait CollectionTransformer
 {
-    use MetaTransformer;
 
     /**
      * @param Collection $collection

@@ -7,9 +7,11 @@ namespace APITransformer;
  * Trait MetaTransformer
  * @package APITransformer
  */
-trait MetaTransformer
+trait Transformer
 {
 
+    use ItemTransformer, CollectionTransformer;
+    
     /**
      * @param array $meta
      * @param $resource
