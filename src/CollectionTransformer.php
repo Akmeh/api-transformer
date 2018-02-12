@@ -17,6 +17,8 @@ use League\Fractal\TransformerAbstract;
 trait CollectionTransformer
 {
 
+    use CursorForCollections;
+
     /**
      * @param Collection $collection
      * @param TransformerAbstract $transformer
