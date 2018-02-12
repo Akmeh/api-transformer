@@ -15,7 +15,7 @@ use League\Fractal\Resource\Item as FractalItem;
  *
  * @package APITransformer
  */
-trait TransformerJoint
+class TransformerJoint
 {
 
     /**
