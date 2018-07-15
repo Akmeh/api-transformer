@@ -32,7 +32,7 @@ trait ItemTransformer
 
         $resource = new FractalItem($model, $transformer, $resource);
 
-        $this->setMeta($meta, $resource);
+        $resource->setMeta($meta, $resource);
 
         return $manager->createData($resource)->toArray();
     }
