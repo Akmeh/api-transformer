@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace APITransformer;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use League\Fractal\Manager;
 use League\Fractal\Serializer\JsonApiSerializer;
@@ -42,7 +42,8 @@ trait CollectionTransformer
 
         $resource->setCursor($this->getCursorFromRequest($request, $resourceName));
 
-        $this->setMeta($meta, $resource);
+        $resource->setMeta($meta, $resource);
+
         return $manager->createData($resource)->toArray();
     }
 
