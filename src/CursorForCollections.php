@@ -27,6 +27,7 @@ trait CursorForCollections
         if (empty($this->defaultCollection)) {
             throw new \InvalidArgumentException('The Default Collection need to be declared');
         }
+
         $query = DB::table($this->defaultCollection);
 
         $this->filter($request, $query);
@@ -107,7 +108,6 @@ trait CursorForCollections
         if ($request->has('filter')) {
             $filter = $request->get('filter');
             foreach ($filter as $key => $val) {
-
                 if (filter_var($val, FILTER_VALIDATE_INT)) {
                     $val = (int) $val;
                 }

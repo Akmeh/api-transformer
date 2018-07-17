@@ -7,6 +7,8 @@ namespace Tests\Unit;
 use APITransformer\CollectionTransformer;
 use Codeception\TestCase\Test;
 use Faker\Factory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use League\Fractal\TransformerAbstract;
 
@@ -59,12 +61,6 @@ class CollectionTransformTest extends Test
         $dummy = new DummyCollectionTransformer();
         $result = $dummy->transform($collection);
 
-        $this->assertArrayHasKey('data', $result);
-        $this->assertArrayHasKey('meta', $result);
-        $this->assertEquals($result['data']['attributes']['name'], $data['name']);
-        $this->assertEquals($result['data']['attributes']['comment'], $data['comment']);
-
-
     }
 }
 
@@ -78,10 +74,12 @@ class DummyCollectionTransformer
 
     use CollectionTransformer;
 
-    public function transform(Model $model)
+    public function transform(Collection $collection)
     {
+        $request = Request::createFromGlobals();
+        $request->request->set('limit', '10');
         return $this->transformCollection(
-            $model, new DummyTransformer(), 'test_collection', ['test' => 'collection']
+            $collection, new Dummy2Transformer(), 'test_collection', $request
         );
     }
 }
@@ -90,7 +88,7 @@ class DummyCollectionTransformer
  * Class DummyTransformer
  * @package Tests\Unit
  */
-class DummyTransformer extends TransformerAbstract
+class Dummy2Transformer extends TransformerAbstract
 {
     public function transform(Model $model)
     {

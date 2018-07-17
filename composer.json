@@ -8,12 +8,13 @@
         "php": ">=7.1.13",
         "illuminate/database": "^5.6",
         "illuminate/support": "^5.6",
+        "illuminate/http": "^5.6",
         "league/fractal": "^0.17.0"
     },
     "require-dev": {
       "mockery/mockery": "~0.9.8",
       "fzaninotto/faker": "~1.4",
-      "codeception/codeception": "~2.2.1",
+      "codeception/codeception": "^2.4",
       "codeception/mockery-module": "^0.2.2"
 
     },
